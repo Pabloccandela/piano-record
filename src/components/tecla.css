@@ -1,0 +1,17 @@
+.tecla{
+    height: 300px;
+    width:50px;
+    background-color: #f0f0f0;
+
+}
+
+.teclado{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background-color: #3c3c3c;
+}
+
+.pulsar{
+    background-color: #a5a5a5;
+}
