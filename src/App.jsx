@@ -1,14 +1,17 @@
 
+
 import './App.css'
-import { Pulse } from './components/pulse'
+import PianoProvider from './context/piano-provider'
+import { BaseLayout } from './layouts/base-layout'
 
 function App() {
 
-
   return (
-    <>
-      <Pulse></Pulse>
-    </>
+    <PianoProvider>
+      {
+        <BaseLayout />
+      }
+    </PianoProvider>
   )
 }
 

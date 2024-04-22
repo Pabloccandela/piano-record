@@ -1,0 +1,72 @@
+.tecla {
+    height: 20rem;
+    width: 5rem;
+    background: #f0f0f0;
+    border-radius: 0.5rem;
+    border: 0.2rem solid #cacaca;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    box-shadow: 0px 0.8rem 0.3rem #1a1a1ac9;
+    transition: box-shadow 0.15s;
+}
+
+.teclado {
+    display: flex;
+    padding: 2rem;
+    border-radius: 1.4rem;
+    background-color: var(--grey);
+}
+
+.pulsar {
+    background: linear-gradient(0deg, #ababab, #f0f0f0);
+    border: 0.2rem solid #bababae2;
+    box-shadow: 0px 0.2rem 0.3rem #222222c9;
+    height: 19.7rem;
+}
+
+.nota {
+    font-size: 1rem;
+    color: #636363;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.listRecord {
+    display: flex;
+    gap: 0.7rem;
+    padding: 1.5rem;
+    background-color: #3c3c3c;
+}
+
+.negra {
+    background: linear-gradient(0deg, #000000, #2e2e2e);
+    color: white;
+    width: 3.5rem;
+    height: 16rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid #202020;
+    position: relative;
+    box-shadow: 0px 0.8rem 0.3rem #11111173;
+
+    &.pulsar {
+        background: linear-gradient(0deg, #000000, #2e2e2e);
+        border: 0.2rem solid #191919;
+        box-shadow: 0px 0.2rem 0.3rem #22222287;
+    }
+}
+
+.negra .nota {
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
