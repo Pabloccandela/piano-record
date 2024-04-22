@@ -69,7 +69,7 @@ export const BaseLayout = () => {
 
 
 const handlePlayRecord = (recordNotesList) => {
-  if(!power) return
+  if(!power || recordPlay) return
   if (!recordPlay && recordNotesList.length > 0) {
       setRecordPlay(true);
       setScreenText("Reproduciendo...");
@@ -88,15 +88,19 @@ const handlePlayRecord = (recordNotesList) => {
       });
       return;
   }
-  setScreenText("Selecciona o realiza una grabación para reproducir!");
-  setTimeout(() => {
-    setScreenText("Piano Record!")
-  },2000)
+  if(!recordState){
+      setScreenText("No se puede reproducir mientras se graba!")
+      setTimeout(() => {
+        setScreenText("Piano Record!")
+      },2000)
+      return
+  }
 };
 
   // funcion para setear las notas
   const handleSetPlayRecord = (recordNotesList)=>{
     setRecordNotes(recordNotesList)
+    handlePlayRecord(recordNotesList)
   }
 
   // funcion para prender piano
@@ -119,12 +123,14 @@ const handlePlayRecord = (recordNotesList) => {
 
   return (
     <main className="base">
+      <h1>PIANO RECORD!</h1>
       <section className="base-panel">
-        <PanelRecords PowerState={power} handlePower={handlePower} screenText={screenText} handleRecordTimer={handleRecordTimer} handlePlayRecord={()=>handlePlayRecord(recordNotes)} RecordTimeMs={recordTimeMs} RecordState={recordState} RecordPlay={recordPlay}/>
+        <PanelRecords HandleSelectRecord={handleSetPlayRecord} PowerState={power} handlePower={handlePower} screenText={screenText} handleRecordTimer={handleRecordTimer} handlePlayRecord={()=>handlePlayRecord(recordNotes)} RecordTimeMs={recordTimeMs} RecordState={recordState} RecordPlay={recordPlay}/>
       </section>
       <section className="base-teclado">
-        <Instrumento  PowerState={power} recordState={recordState} handleInputNote={handleInputNote} synth={synth} />
+        <Instrumento PlayRecord={recordPlay}  PowerState={power} recordState={recordState} handleInputNote={handleInputNote} synth={synth} />
       </section>
+      <h2>Pablo Candela - Laboratorio 4 - React</h2>
     </main>
   )
 }

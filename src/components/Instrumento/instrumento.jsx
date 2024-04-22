@@ -5,7 +5,7 @@ import "./instrumento.css"
 import PianoContext from "../../context/piano-context"
 
 
-export const Instrumento = ({recordState,handleInputNote,synth, PowerState}) => {
+export const Instrumento = ({recordState,handleInputNote,synth, PowerState,PlayRecord}) => {
 
     // Teclado properties
     const [teclas, setTeclas] = useState([]);
@@ -47,7 +47,7 @@ export const Instrumento = ({recordState,handleInputNote,synth, PowerState}) => 
     }, [teclas, notas,recordState,handleInputNote,synth, PowerState]);
     
     const handleTouchNote = (nota)=>{
-      if(PowerState){
+      if(PowerState && !PlayRecord){
         synth.triggerAttackRelease(nota.cifrado, "8n");
         if(recordState){
           let eventKeyDown={

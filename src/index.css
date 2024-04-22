@@ -10,9 +10,28 @@
 html {
     box-sizing: border-box;
     -webkit-text-size-adjust: 100%;
-    /* 1rem = 10px */
-    font-size: 80%;
   }
+
+  /* Media query para dispositivos con un ancho máximo de 600px (celulares) */
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 37%;
+  }
+}
+
+/* Media query para dispositivos con un ancho mínimo de 601px y un máximo de 1200px (tabletas) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* Media query para dispositivos con un ancho mínimo de 1201px (computadoras) */
+@media only screen and (min-width: 769px) {
+  html {
+    font-size: 70%;
+  }
+}
   
   *, *:before, *:after {
     box-sizing: inherit;
@@ -160,6 +179,12 @@ html {
 
   h1, h2, h3, h4, h5, h6, p, span, a {
     font-family: 'Rubik', sans-serif; 
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select:none;
+    user-select:none;
+
   }
   
 
